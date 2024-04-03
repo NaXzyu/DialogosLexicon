@@ -4,9 +4,9 @@ namespace DialogosLexicon
 {
     public class XmlPreprocessor
     {
-        public static List<ReferenceMetadata> ExtractReferences(string xmlContent)
+        public static List<XmlReferenceMetadata> ExtractReferences(string xmlContent)
         {
-            var references = new List<ReferenceMetadata>();
+            var references = new List<XmlReferenceMetadata>();
             var xDocument = XDocument.Parse(xmlContent);
 
             foreach (var element in xDocument.Descendants("reference"))
@@ -16,7 +16,7 @@ namespace DialogosLexicon
                 var urlElement = element.Element("url");
                 var xpath = GetXPath(element);
 
-                var reference = new ReferenceMetadata
+                var reference = new XmlReferenceMetadata
                 {
                     Id = idAttribute != null ? (int)idAttribute : -1,
                     Title = titleElement?.Value,
@@ -30,7 +30,7 @@ namespace DialogosLexicon
             return references;
         }
 
-        private static string GetXPath(XElement element)
+        public static string GetXPath(XElement element)
         {
             var ancestors =
                 from e in element.Ancestors()

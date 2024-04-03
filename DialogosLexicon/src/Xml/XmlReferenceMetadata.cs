@@ -1,6 +1,6 @@
 ﻿namespace DialogosLexicon
 {
-    public struct ReferenceMetadata
+    public struct XmlReferenceMetadata
     {
         public int Id { get; set; }
         public string? Title { get; set; }
