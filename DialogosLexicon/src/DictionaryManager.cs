@@ -56,6 +56,7 @@ namespace DialogosLexicon
                 writer.Write(entry.Frequency);
                 writer.Write(entry.Version);
                 writer.Write((int)entry.LifecyclePhase);
+                Console.WriteLine($"Written word: {entry.Word}:{entry.Id}");
             }
         }
     }
